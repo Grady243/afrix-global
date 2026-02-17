@@ -1,122 +1,80 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Code, Smartphone, Monitor, Globe, ImageIcon, PenTool } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+
+const services = [
+  {
+    icon: Code,
+    color: "text-[#4285f4]",
+    title: "Developpement web",
+    description:
+      "Apprenez a creez des sites et applications web modernes du front-end au back-end et realisez des projets concrets.",
+  },
+  {
+    icon: Smartphone,
+    color: "text-[#30b43f]",
+    title: "Developpement Mobile",
+    description:
+      "Apprenez a creer des applications mobiles performantes pour Android et iOS et realisez des projets concrets.",
+  },
+  {
+    icon: Monitor,
+    color: "text-[#fbbc05]",
+    title: "Marketing Digital",
+    description:
+      "Apprenez a concevoir et gerer des campagnes en ligne efficaces et realisez des projets concrets.",
+  },
+  {
+    icon: Globe,
+    color: "text-[#30b43f]",
+    title: "Consultation Informatique",
+    description:
+      "Apprenez a diagnostiquer, conseiller et optimiser les systemes informatiques avec des projets concrets.",
+  },
+  {
+    icon: ImageIcon,
+    color: "text-[#ea4335]",
+    title: "Communication visuelle",
+    description:
+      "Apprenez a creer des contenus graphiques impactants et realistes pour vos projets concrets.",
+  },
+  {
+    icon: PenTool,
+    color: "text-[#4285f4]",
+    title: "Redaction des contenus",
+    description:
+      "Apprenez a produire des textes clairs et efficaces pour vos projets et supports numeriques.",
+  },
+]
 
 export default function ServicesSection() {
-
-  const sectionRef = useRef(null);
-
-  // Animation au scroll
-  useEffect(() => {
-    const section = sectionRef.current as HTMLElement | null;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (section) observer.observe(section);
-  }, []);
-
-  const services = [
-    {
-      img: "/images/service1.jpg",
-      icon: "/logo.png",
-      title: "Développement Web",
-      text: "Formation en développement web (HTML, CSS, Javascript, PHP, React JS, Vue JS, Django)",
-    },
-    {
-      img: "/images/service2.jpg",
-      icon: "/logo.png",
-      title: "Développement Mobile",
-      text: "Développement d'application mobile (Flutter et React Native)",
-    },
-    {
-      img: "/images/service3.jpg",
-      icon: "/logo.png",
-      title: "Marketing Digital",
-      text: "Formation sur les fondamentaux du Marketing Digital (Social Media Marketing, Content Marketing, Marketing d’Influence, ...)",
-    },
-    {
-      img: "/images/service4.jpg",
-      icon: "/logo.png",
-      title: "Consultation informatique",
-      text: "Des solutions sur mesure pour un avenir digital optimisé",
-    },
-    {
-      img: "/images/service5.jpg",
-      icon: "/logo.png",
-      title: "Communication visuelle",
-      text: "Apprentissage des outils Adobe (Photoshop, Premiere Pro, Lightroom, Illustrator, XD, ...)",
-    },
-    {
-      img: "/images/service6.jpg",
-      icon: "/logo.png",
-      title: "Rédaction de Contenu",
-      text: "Nous vous aidons à créer du contenu percutant et personnalisé pour attirer, engager et convertir votre audience",
-    },
-  ];
-
   return (
     <section
-      ref={sectionRef}
-      className="
-        relative py-16 bg-gray-100">
-      {/* TRIANGLE ANIMÉ À DROITE */}
-      <div 
-        className="
-          absolute right-0 top-0 
-          w-0 h-0 
-          border-t-[350px] border-t-transparent
-          border-l-[350px] border-l-gray-400/50 
-          opacity-70 
-          animate-[floatTriangle_8s_ease-in-out_infinite]
-        "
-      />
+      id="services"
+      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-16 lg:py-8 bg-[#0a0a0a]"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle at 10% 0%, rgba(244, 180, 0, 0.3), transparent 25%), radial-gradient(circle at 100% 100%, rgba(15, 157, 88, 0.3), transparent 35%)",
+      }}
+    >
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center">
+        NOS <span className="text-[#ea4335]">SERVICES</span>
+      </h2>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h4 className="text-blue-600 font-semibold tracking-wide">NOS SERVICES</h4>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">Ce que nous offrons</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="relative overflow-hidden p-0 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              <CardHeader className="p-0 relative">
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 hover:scale-105"
-                />
-
-                <div className="absolute -bottom-6 left-6 p-1 w-16 h-16 rounded-full bg-white shadow-lg border-2 border-white flex items-center justify-center overflow-hidden">
-                  <img
-                    src={service.icon}
-                    alt="Service icon"
-                    className="w-full h-full object-cover rounded-full border-2 border-gray-400"
-                  />
-                </div>
-              </CardHeader>
-
-              <CardContent className="pt-10 p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-1">
-                  {service.title}
-                </h4>
-                <p className="text-sm text-gray-600">{service.text}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      <div className="w-[90%] lg:w-[80%] flex flex-wrap justify-center gap-6">
+        {services.map((service) => (
+          <Card
+            key={service.title}
+            className="w-full sm:w-[45%] lg:w-[30%] glass rounded-2xl border border-white/20 text-center transition-transform hover:-translate-y-1 hover:shadow-2xl bg-black/30"
+          >
+            <CardContent className="p-8 flex flex-col items-center gap-4">
+              <service.icon className={`w-12 h-12 lg:w-16 lg:h-16 ${service.color}`} />
+              <h3 className="text-lg font-bold text-white">{service.title}</h3>
+              <p className="text-white/70 text-sm leading-relaxed">{service.description}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
-  );
+  )
 }
