@@ -29,7 +29,7 @@ export default function Footer() {
         {/* Block 1: Logo + desc + socials */}
         <div className="flex-1 min-w-[220px]">
           <Image
-            src="/logo.png"
+            src="/favicon.png"
             alt="Afrix Global Logo"
             width={150}
             height={40}

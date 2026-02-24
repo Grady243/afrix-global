@@ -24,10 +24,10 @@ export default function Header() {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Image
-            src="/logo.png"
+            src="/afrix.png"
             alt="Afrix Global Logo"
             width={150}
-            height={40}
+            height={20}
             className="object-contain"
           />
         </div>

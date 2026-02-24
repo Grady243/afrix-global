@@ -57,24 +57,6 @@ export default function HeroSection() {
   const animatedText = useSequentialPhrases(phrases)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  // Mettre à jour les cercles en fonction de la phrase active
-  useEffect(() => {
-    // Logique pour changer les textes des cercles selon la phrase active
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 4)
-    }, 3000)
-    
-    return () => clearInterval(interval)
-  }, [])
-
-  // Textes pour les cercles qui changent
-  const circleTexts = [
-    { train: "Train", create: "Create", connect: "Connect" },
-    { train: "Formation", create: "Innovation", connect: "Croissance" },
-    { train: "Compétences", create: "Réseau", connect: "Opportunités" },
-    { train: "Apprendre", create: "Créer", connect: "Connecter" }
-  ]
-
   return (
     <section className="relative flex flex-col items-center w-full min-h-screen bg-[#0a0a0a] pt-[120px]">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 lg:gap-[5vw]">
@@ -103,22 +85,19 @@ export default function HeroSection() {
 
           {/* Top circle - We Train (red) */}
           <div className="absolute right-[5%] lg:right-[10%] top-[-5%] lg:top-[-10%] w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[10vw] lg:h-[10vw] bg-[#ea4335] rounded-full flex items-center justify-center z-20 shadow-lg transition-all duration-500">
-            <h3 className="text-white text-center text-xs sm:text-sm lg:text-base font-bold leading-tight">
-              We <br />{circleTexts[activeIndex].train}
+            <h3 className="text-white text-center text-xs sm:text-sm lg:text-base font-bold leading-tight">We <br/> train
             </h3>
           </div>
 
           {/* Bottom circle - We Create (yellow) */}
           <div className="absolute left-[10%] lg:left-[15%] bottom-[5%] w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[10vw] lg:h-[10vw] bg-[#fbbc05] rounded-full flex items-center justify-center z-20 shadow-lg transition-all duration-500">
-            <h3 className="text-white text-center text-xs sm:text-sm lg:text-base font-bold leading-tight">
-              We <br />{circleTexts[activeIndex].create}
+            <h3 className="text-white text-center text-xs sm:text-sm lg:text-base font-bold leading-tight">We <br/> create
             </h3>
           </div>
 
           {/* Right circle - We Connect (green) */}
           <div className="absolute bottom-[15%] right-[-5%] w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] lg:w-[10vw] lg:h-[10vw] bg-[#30b43f] rounded-full flex items-center justify-center z-20 shadow-lg transition-all duration-500">
-            <h3 className="text-white text-center text-xs sm:text-sm lg:text-base font-bold leading-tight">
-              We <br />{circleTexts[activeIndex].connect}
+            <h3 className="text-white text-center text-xs sm:text-sm lg:text-base font-bold leading-tight">We <br/> connect
             </h3>
           </div>
         </div>
