@@ -15,19 +15,17 @@ const publications = [
     description: "Resume succinct de la publication et details importants.",
   },
   {
-    image: "/images/pub3.jpg",
+    image: "/images/hero3.jpg",
     date: "15 Decembre 2025",
     description: "Petit resume de la publication avec un texte accrocheur.",
   },
 ]
 export default function PublicationSection() {
-    return (
-            <section
+  return (
+    <section
       id="publications"
       className="w-full min-h-[90vh] py-16 bg-[#0a0a0a] flex flex-col items-center"
-      style={{
-        backgroundImage:
-          "radial-gradient(circle at 0% 0%, rgba(66, 133, 244, 0.3), transparent 25%), radial-gradient(circle at 100% 100%, rgba(219, 68, 55, 0.3), transparent 25%)",
+      style={{ backgroundImage: "radial-gradient(circle at 0% 0%, rgba(66, 133, 244, 0.3), transparent 25%), radial-gradient(circle at 100% 100%, rgba(219, 68, 55, 0.3), transparent 25%)",
       }}
     >
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mb-10">
@@ -45,7 +43,7 @@ export default function PublicationSection() {
                 src={pub.image || "/placeholder.svg"}
                 alt={pub.description}
                 fill
-                className="object-cover"
+                className="absolute inset-0 w-full h-full z-20 object-cover"
               />
             </div>
             <CardContent className="p-5 flex flex-col gap-3">
@@ -62,5 +60,5 @@ export default function PublicationSection() {
         ))}
       </div>
     </section>
-    );
+  );
 }
