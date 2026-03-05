@@ -3,44 +3,44 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const teamMembers = [
   {
-    name: "Amara Diallo",
+    name: "Prud Zihalirwa",
     role: "Fondateur & CEO",
     photo: "/images/team-1.jpg",
     color: "border-afrix-blue",
     description:
-      "Visionnaire et entrepreneur, Amara dirige Afrix Global avec la mission de transformer l'education numerique en Afrique.",
+      "Visionnaire et entrepreneur, Prud dirige Afrix Global avec la mission de transformer l'education numerique en Afrique.",
   },
   {
-    name: "Fatou Ndiaye",
+    name: "Celine Nakasunyu",
     role: "Directrice des Formations",
     photo: "/images/team-2.jpg",
     color: "border-afrix-green",
     description:
-      "Experte en pedagogie numerique, Fatou supervise le contenu et la qualite de toutes les formations proposees.",
+      "Experte en pedagogie numerique, Celine supervise le contenu et la qualite de toutes les formations proposees.",
   },
   {
-    name: "Ibrahim Kone",
-    role: "Lead Developpeur",
+    name: "Espoir Baraka",
+    role: "CTO & Developpeur",
     photo: "/images/team-3.jpg",
     color: "border-afrix-yellow",
     description:
-      "Passione de code et d'innovation, Ibrahim encadre les projets techniques et forme les developpeurs de demain.",
+      "Passione de code et d'innovation, Espoir encadre les projets techniques et forme les developpeurs de demain.",
   },
   {
-    name: "Aissatou Bah",
+    name: "Michael ",
     role: "Responsable Marketing",
     photo: "/images/team-4.jpg",
     color: "border-afrix-red",
     description:
-      "Strategiste digitale, Aissatou pilote la communication et la visibilite de la marque Afrix Global.",
+      "Strategiste digitale, Michael pilote la communication et la visibilite de la marque Afrix Global.",
   },
   {
-    name: "Moussa Traore",
-    role: "Formateur Mobile",
+    name: "Dieumerci Muhindo",
+    role: "Coach developpement Fullstack & Developpeur",
     photo: "/images/team-5.jpg",
     color: "border-afrix-blue",
     description:
-      "Specialiste du developpement mobile, Moussa accompagne les apprenants dans la creation d'applications performantes.",
+      "Specialiste du developpement mobile, Dieumerci accompagne les apprenants dans la creation d'applications performantes.",
   },
   {
     name: "Mariama Sow",
