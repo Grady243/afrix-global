@@ -5,12 +5,12 @@ import { Mail, Phone, MapPin } from "lucide-react"
 
 
 const menuLinks = [
-  { label: "Accueil", href: "#" },
-  { label: "Equipe", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "Formations", href: "#" },
-  { label: "Blog", href: "#publications" },
-  { label: "Contact", href: "#" },
+  { label: "Accueil", href: "/" },
+  { label: "Equipe", href: "/equipe" },
+  { label: "Services", href: "/services" },
+  { label: "Formations", href: "/formations" },
+  { label: "Blog", href: "/blogs" },
+  { label: "Contact", href: "/contact" },
 ]
 
 const formationLinks = [
@@ -79,7 +79,7 @@ export default function Footer() {
             {formationLinks.map((label) => (
               <li key={label}>
                 <Link
-                  href="#"
+                  href="/formations"
                   className="text-white/80 hover:text-[#4285f4] transition-colors text-sm"
                 >
                   {label}
@@ -95,12 +95,12 @@ export default function Footer() {
           <div className="space-y-3 text-white/80 text-sm">
 
             <p className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 mt-0.5 text-[#ea4335]" />
+              <MapPin className="w-7 h-7 mt-0.5 text-[#ea4335]" />
               123 Rue de l'Innovation, Dakar, Senegal
             </p>
 
             <p className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-[#4285f4]" />
+              <Mail className="w-7 h-7 text-[#4285f4]" />
               <a
                 href="mailto:afrixinfocontact@gmail.com"
                 className="hover:text-[#4285f4] transition-colors underline"
@@ -110,7 +110,7 @@ export default function Footer() {
             </p>
 
             <p className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[#30b43f]" />
+              <Phone className="w-7 h-7 text-[#30b43f]" />
               <a
                 href="tel:+221123456789"
                 className="hover:text-[#30b43f] transition-colors underline"

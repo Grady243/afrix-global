@@ -9,7 +9,7 @@ const articles = [
         title: "Les tendances du developpement web en 2026",
         image: "/images/pub1.jpg",
         date: "03 Janvier 2026",
-        author: "Amara Diallo",
+        author: "David Kitenge",
         category: "Tech",
         categoryColor: "bg-afrix-blue",
         excerpt:
@@ -19,7 +19,7 @@ const articles = [
         title: "Comment debuter dans le marketing digital en Afrique",
         image: "/images/pub2.jpg",
         date: "27 Decembre 2025",
-        author: "Aissatou Bah",
+        author: "prud Zihalirwa",
         category: "Marketing",
         categoryColor: "bg-afrix-yellow",
         excerpt:
@@ -29,7 +29,7 @@ const articles = [
         title: "Retour sur le Tech Summit 2025",
         image: "/images/pub3.jpg",
         date: "15 Decembre 2025",
-        author: "Fatou Ndiaye",
+        author: "Dieumerci Muhindo",
         category: "Evenements",
         categoryColor: "bg-afrix-green",
         excerpt:
@@ -39,7 +39,7 @@ const articles = [
         title: "5 competences numeriques indispensables pour 2026",
         image: "/images/event.jpg",
         date: "10 Decembre 2025",
-        author: "Ibrahim Kone",
+        author: "Lemoisson Metre",
         category: "Formation",
         categoryColor: "bg-afrix-red",
         excerpt:
@@ -49,7 +49,7 @@ const articles = [
         title: "L'impact de l'IA sur l'education en Afrique",
         image: "/images/about-1.jpg",
         date: "01 Decembre 2025",
-        author: "Amara Diallo",
+        author: "john Santos",
         category: "Tech",
         categoryColor: "bg-afrix-blue",
         excerpt:
@@ -59,7 +59,7 @@ const articles = [
         title: "Temoignage : de formateur a entrepreneur",
         image: "/images/about-2.jpg",
         date: "20 Novembre 2025",
-        author: "Moussa Traore",
+        author: "Bienvenu Mupenzi",
         category: "Temoignage",
         categoryColor: "bg-afrix-green",
         excerpt:
