@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { PageHeader } from "../../components/Page-header";
+import type { Metadata } from "next"; 
+import { PageHeader } from "../../components/page-header";
 import { TeamGrid } from "../../components/Team"
 
 export const metadata: Metadata = {
