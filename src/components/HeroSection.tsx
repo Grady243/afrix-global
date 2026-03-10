@@ -5,6 +5,7 @@ import Image from "next/image";
 import LogoAfrix from "@/public/images/logo-afrix3.png";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 // const phrases = [
 //   "We Train. We Create. We Connect.",
@@ -75,16 +76,22 @@ export default function HeroSection() {
 
           {/* buttons hero section  */}
           <div className="space-x-8 mt-8">
-            <Button
-              variant={"default"}
-              size={"lg"}
-              className="w-45 p-6  bg-afrix-blue  hover:bg-afrix-blue/80"
-            >
-              Savoir plus
-            </Button>
-            <Button className="w-45 p-6 bg-transparent border-2 border-afrix-blue hover:bg-afrix-blue">
-              Nous contacter
-            </Button>
+            <Link href="#">
+              {" "}
+              <Button
+                variant={"default"}
+                size={"lg"}
+                className="w-45 p-6  bg-afrix-blue  hover:bg-afrix-blue/80 cursor-pointer"
+              >
+                Savoir plus
+              </Button>
+            </Link>
+
+            <Link href="/contact">
+              <Button className="w-45 p-6 bg-transparent border-2 border-afrix-blue hover:bg-afrix-blue cursor-pointer">
+                Nous contacter
+              </Button>
+            </Link>
           </div>
         </div>
 
