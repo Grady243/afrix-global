@@ -4,7 +4,7 @@ import Image from "next/image";
 import ImgAbout2 from "@/public/team-engineers-server-hub-working-together-investigate-breach-alerts.jpg";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import AnimatedCounter from "./AnimatedCounter";
+import AnimatedCounter from "../../components/AnimatedCounter";
 // import { Rocket, Globe } from "lucide-react";
 
 export default function AboutSection() {
