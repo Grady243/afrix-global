@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
+  {label: "A propos", href: "/apropos" },
   { label: "Equipe", href: "/equipe" },
   { label: "Services", href: "/services" },
   { label: "Formations", href: "/formations" },
@@ -47,7 +48,7 @@ export default function Header() {
         </ul>
 
         <Button className="hidden lg:inline-flex rounded-full bg-afrix-blue text-white hover:bg-afrix-blue px-7 py-5 text-sm font-medium">
-          Inscrit-toi
+          Inscrivez-vous
         </Button>
 
         {/* Mobile toggle */}
@@ -73,7 +74,7 @@ export default function Header() {
               </Link>
             ))}
             <Button className="rounded-full bg-afrix-blue text-white hover:bg-afrix-blue mt-2">
-              Inscrit-toi
+              Inscrivez-vous
             </Button>
           </div>
         )}

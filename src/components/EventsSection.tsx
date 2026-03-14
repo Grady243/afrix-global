@@ -1,8 +1,9 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+"use client"
+
+import { useState, useEffect, useCallback } from "react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const events = [
   { image: "/images/event1.jpg", title: "Tech Summit 2026" },
@@ -10,17 +11,30 @@ const events = [
   { image: "/images/event3.jpg", title: "Hackathon Afrix" },
 ];
 
-export default function EventsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const AUTO_SCROLL_INTERVAL = 4000 // 4 seconds
 
-  const prev = () =>
-    setCurrentIndex((i) => (i === 0 ? events.length - 1 : i - 1));
-  const next = () =>
-    setCurrentIndex((i) => (i === events.length - 1 ? 0 : i + 1));
+export default function EventsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  const prev = useCallback(() => setCurrentIndex((i) => (i === 0 ? events.length - 1 : i - 1)), [])
+  const next = useCallback(() => setCurrentIndex((i) => (i === events.length - 1 ? 0 : i + 1)), [])
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isPaused) return
+
+    const interval = setInterval(() => {
+      next()
+    }, AUTO_SCROLL_INTERVAL)
+
+    return () => clearInterval(interval)
+  }, [isPaused, next])
+
   return (
     <section
       id="events"
-      className="w-full min-h-[80vh] pt-8  bg-afrix-dark  flex flex-col items-center gap-12"
+      className="w-full min-h-[80vh] py-16 bg-afrix-dark flex flex-col items-center gap-8"
       style={{
         backgroundImage:
           "radial-gradient(circle at 0% 100%, rgba(66, 133, 244, 0.3), transparent 25%), radial-gradient(circle at 100% 0%, rgba(15, 157, 88, 0.3), transparent 35%)",
@@ -30,7 +44,11 @@ export default function EventsSection() {
         NOS <span className="text-afrix-yellow">EVENEMENTS</span>
       </h2>
 
-      <div className="relative w-full max-w-250 flex items-center justify-center">
+      <div 
+        className="relative w-[90%] max-w-[1000px] flex items-center justify-center"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {/* Left arrow */}
         <button
           onClick={prev}
@@ -41,8 +59,10 @@ export default function EventsSection() {
         </button>
 
         {/* Event card */}
-        <div className="w-full overflow-hidden rounded-2xl bg-red-500">
-          <div className="relative w-full h-62.5 sm:h-75 lg:h-100 group overflow-hidden rounded-2xl">
+        <div className="w-full overflow-hidden rounded-2xl">
+          <div
+            className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] group overflow-hidden rounded-2xl"
+          >
             <Image
               src={events[currentIndex].image || "/placeholder.svg"}
               alt={events[currentIndex].title}
@@ -69,6 +89,22 @@ export default function EventsSection() {
           <ChevronRight size={24} />
         </button>
       </div>
+
+      {/* Pagination dots */}
+      <div className="flex items-center gap-3">
+        {events.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? "bg-afrix-yellow w-8" 
+                : "bg-white/30 hover:bg-white/50"
+            }`}
+            aria-label={`Go to event ${index + 1}`}
+          />
+        ))}
+      </div>
     </section>
-  );
+  )
 }

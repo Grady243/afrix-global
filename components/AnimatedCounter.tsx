@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 
 interface Counter {
   target: number;
+  prefix?: string;
 }
 
-export default function AnimatedCounter({ target }: Counter) {
+export default function AnimatedCounter({ target, prefix = "" }: Counter) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -26,5 +27,10 @@ export default function AnimatedCounter({ target }: Counter) {
     return () => clearInterval(timer);
   }, [target]);
 
-  return <span>{count}</span>;
+  return (
+    <span>
+      {prefix}
+      {count}
+    </span>
+  );
 }
