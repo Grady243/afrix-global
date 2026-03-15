@@ -1,8 +1,8 @@
 "use client";
 
-import image from "@/public/images/herosection@0.5x.png";
+import image from "@/public/images/herosection/hero_section_image.webp";
 import Image from "next/image";
-import LogoAfrix from "@/public/images/logo-afrix3.png";
+import LogoAfrix from "@/public/images/image_herosection1.webp";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

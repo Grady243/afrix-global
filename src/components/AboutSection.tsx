@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ImgAbout2 from "@/public/team-engineers-server-hub-working-together-investigate-breach-alerts.jpg";
+import ImgAbout2 from "@/public/images/pub2.jpeg";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import AnimatedCounter from "../../components/AnimatedCounter";

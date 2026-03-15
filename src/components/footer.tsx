@@ -38,7 +38,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-8">
             <Link
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61570369245195&locale=fr_FR"
               aria-label="Facebook"
               className="text-white-100/90 hover:text-afrix-blue/80 hover:scale-110 transition-transform"
             >
@@ -47,7 +47,7 @@ export default function Footer() {
               </svg>
             </Link>
             <Link
-              href="#"
+              href="https://x.com/Afrix_Global"
               aria-label="Twitter"
               className="text-white-100/90 hover:text-afrix-blue/80 hover:scale-110 transition-transform"
             >
@@ -56,7 +56,7 @@ export default function Footer() {
               </svg>
             </Link>
             <Link
-              href="#"
+              href="https://www.linkedin.com/company/afrix-global/posts/?feedView=all"
               aria-label="LinkedIn"
               className="text-white-100/90 hover:text-afrix-blue/80 hover:scale-110 transition-transform"
             >
@@ -116,13 +116,13 @@ export default function Footer() {
 
             <div className="space-y-3 text-white/80 text-sm">
               <p className="flex items-start gap-2">
-                <MapPin className="w-7 h-7 mt-0.5 text-afrix-red" />
+                <MapPin className="w-5 h-5 mt-0.5" />
                 286, Avenue de Musée, <br />
                 Commune de Karisimbi, Ville de Goma
               </p>
 
               <p className="flex items-center gap-2">
-                <Mail className="w-7 h-7 text-afrix-blue" />
+                <Mail className="w-5 h-5" />
                 <a
                   href="mailto:afrixinfocontact@gmail.com"
                   className="hover:text-afrix-blue transition-colors underline"
@@ -132,7 +132,7 @@ export default function Footer() {
               </p>
 
               <p className="flex items-center gap-2">
-                <Phone className="w-7 h-7 text-afrix-green" />
+                <Phone className="w-5 h-5" />
                 <a
                   href="tel:+221123456789"
                   className="hover:text-afrix-green transition-colors underline"
