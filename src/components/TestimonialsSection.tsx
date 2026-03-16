@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
@@ -37,21 +37,41 @@ const testimonials = [
   },
 ];
 
+// Orbit positions for the small images (in degrees) - 5 images around the circle
+const orbitPositions = [270, 342, 54, 126, 198] // Starting from top, going clockwise
 export default function TestimonialsSection() {
-  const [active, setActive] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [rotation, setRotation] = useState(0)
 
+  const prev = useCallback(() => setCurrentIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1)), [])
+  const next = useCallback(() => setCurrentIndex((i) => (i === testimonials.length - 1 ? 0 : i + 1)), [])
+
+  // Continuous rotation animation + auto change testimonial
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActive((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
+    const rotationInterval = setInterval(() => {
+      setRotation((r) => r + 0.3)
+    }, 50)
+    return () => clearInterval(rotationInterval)
+  }, [])
 
-    return () => clearInterval(interval);
-  }, []);
+  // Change testimonial every full rotation (360 degrees / 5 testimonials = 72 degrees per testimonial)
+  useEffect(() => {
+    const changeInterval = setInterval(() => {
+      next()
+    }, 4000) // Change every 4 seconds
+    return () => clearInterval(changeInterval)
+  }, [next])
 
-  const next = () => setActive((active + 1) % testimonials.length);
-  const prev = () =>
-    setActive((active - 1 + testimonials.length) % testimonials.length);
+  const current = testimonials[currentIndex]
 
+  // Get orbit images (all except current)
+  const getOrbitImages = () => {
+    return testimonials
+      .filter((_, i) => i !== currentIndex)
+      .map(t => t.photo)
+  }
+  
+  const orbitImages = getOrbitImages()
   return (
     <section
       className="w-full min-h-screen bg-afrix-dark flex flex-col items-center justify-center gap-10 lg:gap-[5vw] py-16"
@@ -64,115 +84,120 @@ export default function TestimonialsSection() {
         TESTIMONIALES
       </h2>
 
-      <div className="w-[90%] lg:w-[80%] flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-        {/* MOBILE AVATARS */}
-        <div className="flex lg:hidden gap-3 overflow-x-auto pb-4 w-full justify-center">
-          {testimonials.map((t, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`relative w-14 h-14 shrink-0 rounded-full overflow-hidden border-2 transition
-        ${i === active ? "border-afrix-yellow scale-110" : "border-white/20 opacity-70"}`}
-            >
+      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+          {/* Left side - Orbit animation */}
+          <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] flex-shrink-0">
+            {/* Dotted circle track - matching orbit radius */}
+            <div 
+              className="absolute inset-[30px] sm:inset-[35px] lg:inset-[40px] rounded-full"
+              style={{
+                border: "2px dashed #e0e0e0",
+              }}
+            />
+
+            {/* Center main image */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] lg:w-[180px] lg:h-[180px] rounded-full overflow-hidden border-4 border-white shadow-xl z-10">
               <Image
-                src={t.photo}
-                alt={t.name}
+                src={current.photo}
+                alt={current.name}
                 fill
-                sizes="56px"
                 className="object-cover"
               />
-            </button>
-          ))}
-        </div>
+            </div>
 
-        {/* AVATARS COLUMN */}
-        <div className="relative h-105 w-55 items-center justify-center hidden lg:flex">
-          {testimonials.map((t, i) => {
-            let offset = i - active;
+            {/* Orbiting images */}
+            {orbitImages.map((img, index) => {
+              const angle = orbitPositions[index % orbitPositions.length] + rotation
+              const radian = (angle * Math.PI) / 180
+              // Orbit radius - further from the main image
+              const orbitRadius = 140 // Increased to separate from main image
+              const x = Math.cos(radian) * orbitRadius
+              const y = Math.sin(radian) * orbitRadius
+              
+              // Vary sizes for visual interest
+              const sizes = [48, 40, 44, 38, 42]
+              const size = sizes[index % sizes.length]
 
-            if (offset > testimonials.length / 2) offset -= testimonials.length;
-            if (offset < -testimonials.length / 2)
-              offset += testimonials.length;
-
-            const radius = 120;
-            const angle = offset * 0.65;
-            const x = -Math.cos(angle) * radius + 40;
-            const y = Math.sin(angle) * radius;
-            const scale = offset === 0 ? 0 : 0.75;
-            const opacity = Math.abs(offset) > 2 ? 0 : 1;
-
-            return (
-              <div
-                key={i}
-                className="absolute transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]"
-                style={{
-                  transform: `translate(${x}px, ${y}px) scale(${scale})`,
-                  opacity,
-                  zIndex: 10 - Math.abs(offset),
-                }}
-              >
-                <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
+              return (
+                <div
+                  key={img}
+                  className="absolute rounded-full overflow-hidden border-2 border-white shadow-lg"
+                  style={{
+                    width: size,
+                    height: size,
+                    top: `calc(50% + ${y}px - ${size / 2}px)`,
+                    left: `calc(50% + ${x}px - ${size / 2}px)`,
+                  }}
+                >
                   <Image
-                    src={t.photo}
-                    alt={t.name}
+                    src={img}
+                    alt={`Testimonial ${index + 1}`}
                     fill
-                    sizes="64px"
                     className="object-cover"
                   />
                 </div>
+              )
+            })}
+
+            {/* Connection lines (decorative dots on the orbit path) */}
+            {[30, 90, 150, 210, 270, 330].map((angle, i) => {
+              const radian = ((angle + rotation * 0.5) * Math.PI) / 180
+              const distance = 140 // Same as orbit radius
+              const x = Math.cos(radian) * distance
+              const y = Math.sin(radian) * distance
+              return (
+                <div
+                  key={`dot-${i}`}
+                  className="absolute w-1.5 h-1.5 rounded-full bg-afrix-red/30"
+                  style={{
+                    top: `calc(50% + ${y}px - 3px)`,
+                    left: `calc(50% + ${x}px - 3px)`,
+                  }}
+                />
+              )
+            })}
+          </div>
+
+          {/* Right side - Testimonial content */}
+          <div className="flex-1 max-w-[500px]">
+            {/* Quote icon */}
+            <div className="text-afrix-red text-6xl font-serif leading-none mb-4">
+              "
+            </div>
+
+            {/* Testimonial text */}
+            <p className="text-gray-600 text-base leading-relaxed mb-8">
+              {current.text}
+            </p>
+
+            {/* Navigation and author */}
+            <div className="flex items-center justify-between">
+              {/* Navigation buttons */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prev}
+                  className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:border-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={next}
+                  className="w-10 h-10 rounded-full bg-afrix-red flex items-center justify-center text-white hover:bg-red-600 transition-colors"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight size={20} />
+                </button>
               </div>
-            );
-          })}
-        </div>
 
-        {/* BIG IMAGE */}
-        <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 shrink-0">
-          <div className="absolute inset-0 rounded-full bg-linear-to-br from-afrix-red via-afrix-blue to-afrix-green blur-2xl opacity-40"></div>
-
-          <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20">
-            <Image
-              src={testimonials[active].photo}
-              alt={testimonials[active].name}
-              fill
-              priority
-              className="object-cover transition-all duration-700"
-            />
+              {/* Author info */}
+              <div className="text-right">
+                <h4 className="font-bold text-gray-900">{current.name}</h4>
+                <p className="text-gray-500 text-sm">{current.title}</p>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* TEXT */}
-        <div className="max-w-xl space-y-6 text-center lg:text-left">
-          <Quote className="text-afrix-red w-10 h-10" />
-
-          <p className="text-white/80 leading-relaxed text-lg transition-all duration-500">
-            {testimonials[active].text}
-          </p>
-
-          <div>
-            <h3 className="text-white font-semibold text-lg">
-              {testimonials[active].name}
-            </h3>
-            <p className="text-white/60">{testimonials[active].title}</p>
-          </div>
-
-          {/* BUTTONS */}
-          <div className="flex gap-4 pt-4 justify-center lg:justify-start">
-            <button
-              onClick={prev}
-              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition"
-            >
-              <ChevronLeft className="text-white" />
-            </button>
-
-            <button
-              onClick={next}
-              className="p-3 rounded-full bg-afrix-red hover:bg-[#c5372c] transition"
-            >
-              <ChevronRight className="text-white" />
-            </button>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
