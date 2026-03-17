@@ -26,29 +26,29 @@ export const events: Event[] = [
       { time: "17h30", activity: "Session de questions-réponses et clôture" },
     ],
     speakers: [
-      { name: "Lemoisson Metre", role: "CEO, Harvely compagny", image: "/images/speakers/lemoisson.jpg" },
-      { name: "John Santos Nd.", role: "CEO, PrimeTek Africa", image: "/images/speakers/santos.jpg" },
-      { name: "Ushindi Gedeon", role: "Software Engineer", image: "/images/speakers/ushindi.jpg" },
+      { name: "Lemoisson Metre", role: "CEO, Harvely compagny", image: "/images/speakers/lemoisson.jpeg" },
+      { name: "John Santos Nd.", role: "CEO, PrimeTek Africa", image: "/images/speakers/santos.jpeg" },
+      { name: "Ushindi Gedeon", role: "Software Engineer", image: "/images/speakers/ushindi.jpeg" },
     ],
-    gallery: ["/images/events/event.jpg", "/images/events/pub1.jpg", "/images/events/pub2.jpg", "/images/events/pub3.jpg"],
+    gallery: ["/images/events/event.jpeg", "/images/events/event8.jpeg", "/images/events/event9.jpeg", "/images/events/event10.jpeg"],
   },
   {
     id: "workshop-2",
     image: "/images/event2.jpg",
-    title: "De Code Learner à Développeur Professionnel : Les Clés Réelles pour Réussir dans l’Industrie Technologique",
-    date: "20 fevrier 2026",
+    title: "Penser en architecte, construire comme un ingénieur (Fullstack Developer)",
+    date: "25 fevrier 2026",
     location: "Afrix Global & Online",
     description: "Ce workshop est une occasion unique pour apprendre, progresser et comprendre les vraies clés pour réussir dans l’industrie tech.",
     fullDescription:
-      "Ce workshop intensif de 3 jours vous permettra de maitriser les outils digitaux essentiels pour votre carriere. De la creation de contenu au marketing digital, en passant par l'analyse de donnees, vous acquerrez des competences pratiques immediatement applicables. Les sessions sont animees par des experts du domaine avec une approche 100% pratique.",
+  "Ce workshop intensif intitulé « Penser en architecte, construire comme un ingénieur » a été conçu pour transformer la manière dont les développeurs abordent la création d’applications modernes. Plus qu’une simple formation technique, il s’agit d’un véritable changement de posture : passer du rôle de codeur exécutant à celui d’ingénieur capable de concevoir des systèmes robustes, évolutifs et durables.\n\nDurant cette expérience immersive, les participants ont été introduits aux fondamentaux de l’architecture logicielle moderne, en comprenant comment les différentes couches d’une application (client, API, base de données, cache) interagissent dans un système réel.\n\nLe workshop a mis un accent particulier sur les principes fondamentaux du développement professionnel...",
     schedule: [
       { time: "10:00", activity: "Ouverture de la session" },
       { time: "14:00", activity: "Q&A et cloture" },
     ],
     speakers: [
-      { name: "Guillain Bisimwa", role: "Building Digital trade & ICT plateforms| fullstack Engineer", image: "/images/speakers/team-4.jpg" },
+      { name: "David Kitenge", role: "Senior FullStack AI/ML Engineer", image: "/images/speakers/kitenge.jpeg" },
     ],
-    gallery: ["/images/events/pub1.jpg", "/images/events/about-1.jpg", "/images/events/guillain.jpg"],
+    gallery: ["/images/events/event2.jpg", "/images/events/event3.jpg", "/images/events/event4.jpg"],
   },
   {
     id: "Workshop-3",
@@ -57,16 +57,22 @@ export const events: Event[] = [
     date: "10-11 fevrier 2026",
     location: "Afrix Global",
     description: "48 heures pour creer des solutions innovantes aux defis africains.",
-    fullDescription:
-      "Le Hackathon Afrix est une competition de 48 heures ou des equipes de developpeurs, designers et entrepreneurs s'affrontent pour creer des solutions technologiques innovantes repondant aux defis du continent africain. Avec des prix totalisant 50 000 USD et un accompagnement par des mentors de renommee internationale, c'est l'opportunite parfaite pour transformer vos idees en projets concrets.",
+    fullDescription:`Ce workshop intitulé « Analyse de cas réels : campagnes réussies et campagnes ratées » plonge les participants au cœur des stratégies concrètes du marketing digital à travers des exemples réels tirés de grandes marques et de projets locaux.
+      L’objectif principal de cette session est d’aller au-delà de la théorie pour comprendre, de manière pratique, ce qui fait le succès ou l’échec d’une campagne digitale. Les participants découvriront comment certaines entreprises ont réussi à capter l’attention, engager leur audience et générer des résultats mesurables, tandis que d’autres ont échoué malgré des moyens importants.
+      À travers une analyse détaillée, le workshop mettra en lumière les éléments clés d’une campagne réussie : la compréhension de la cible, le choix des canaux (réseaux sociaux, email, publicité), la qualité du message, le timing, ainsi que l’utilisation des données pour optimiser les performances.
+      En parallèle, les participants étudieront des campagnes ratées afin d’identifier les erreurs fréquentes à éviter, telles que le manque de stratégie claire, une mauvaise connaissance de l’audience, des messages mal adaptés ou mal positionnés, une mauvaise gestion du budget publicitaire, ou encore l’absence d’analyse des résultats.
+      Le workshop abordera également des notions essentielles comme le branding, le storytelling, le funnel marketing (parcours client) et l’importance des indicateurs de performance (KPIs) dans la prise de décision.
+      Grâce à une approche interactive, les participants seront amenés à analyser, réfléchir et proposer leurs propres solutions, en se mettant dans la peau de véritables stratèges digitaux.
+      À l’issue de cette formation, ils seront capables de décrypter une campagne marketing, identifier les facteurs de succès ou d’échec, éviter les erreurs courantes et concevoir des campagnes plus efficaces basées sur des données et une stratégie claire.
+      Ce workshop s’adresse à toute personne souhaitant améliorer ses compétences en marketing digital, développer un projet, promouvoir une marque ou renforcer son impact dans le monde numérique.`,
     schedule: [
       { time: "8:30", activity: "ouverture" },
       { time: "12:30", activity: "Cloture" },
     ],
     speakers: [
-      { name: "Justin KASEREKA", role: "artiste visuel", image: "/images/speakers/justin.jpg" },
+      { name: "Justin KASEREKA", role: "artiste visuel", image: "/images/speakers/justin.jpeg" },
     ],
-    gallery: ["/images/events/pub2.jpg", "/images/events/pub3.jpg", "/images/events/event.jpg", "/images/events/formation-hero.jpg"],
+    gallery: ["/images/events/event5.jpeg", "/images/events/event6.jpeg", "/images/events/event7.jpeg"],
   },
 ]
 
