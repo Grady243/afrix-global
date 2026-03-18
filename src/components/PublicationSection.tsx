@@ -24,7 +24,7 @@ export default function PublicationSection() {
   return (
     <section
       id="publications"
-      className="w-full min-h-[80vh] bg-afrix-dark flex flex-col items-center"
+      className="w-full min-h-screen bg-afrix-dark flex flex-col items-center gap-10 lg:gap-[5vw] py-16"
       style={{
         backgroundImage:
           "radial-gradient(circle at 0% 0%, rgba(66, 133, 244, 0.3), transparent 25%), radial-gradient(circle at 100% 100%, rgba(219, 68, 55, 0.3), transparent 25%)",
@@ -34,18 +34,18 @@ export default function PublicationSection() {
         NOS RECENTES <span className="text-afrix-blue">PUBLICATIONS</span>
       </h2>
 
-      <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 w-[90%] max-w-300">
+      <div className="w-[90%] lg:w-[80%] flex flex-wrap justify-center gap-6">
         {publications.map((pub) => (
           <Card
             key={pub.date}
             className="w-full sm:w-[48%] lg:w-[30%] glass-light rounded-2xl overflow-hidden border-0 transition-transform hover:-translate-y-1 hover:shadow-2xl bg-white/5"
           >
-            <div className="relative w-full h-45">
+            <div className="relative aspect-video w-full">
               <Image
                 src={pub.image || "/placeholder.svg"}
                 alt={pub.description}
                 fill
-                className="absolute inset-0 w-full h-full z-20 object-cover"
+                className="object-cover"
               />
             </div>
             <CardContent className="p-5 flex flex-col gap-3">
