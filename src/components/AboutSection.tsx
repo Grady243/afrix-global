@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ImgAbout2 from "@/public/images/pub2.jpeg";
+import ImgAbout2 from "@/public/images/logo-afrix3.png";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import AnimatedCounter from "../../components/AnimatedCounter";
@@ -59,7 +59,7 @@ export default function AboutSection() {
               efficacement la transformation digitale des entreprises.
             </p>
           </div>
-          <Link href="#">
+          <Link href="/apropos">
             <Button
               variant={"default"}
               size={"lg"}

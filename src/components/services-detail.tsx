@@ -150,14 +150,14 @@ export function ServicesDetail() {
 
       {/* CTA */}
       <div className="flex flex-col items-center gap-4 mt-8">
-        <p className="text-white/80 text-base text-center max-w-[600px]">
+        <p className="text-white/80 text-base text-center max-w-150">
           {
             "Vous avez un projet en tete ? Contactez-nous pour discuter de vos besoins et decouvrir comment nous pouvons vous accompagner."
           }
         </p>
         <Button
           asChild
-          className="rounded-full bg-afrix-blue text-white hover:bg-[#3367d6] px-8 py-6 text-base font-medium"
+          className="w-36 md:w-45 p-6 mt-6 bg-transparent border border-afrix-blue hover:bg-afrix-blue cursor-pointer"
         >
           <Link href="/contact">Contactez-nous</Link>
         </Button>

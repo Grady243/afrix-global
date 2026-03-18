@@ -3,48 +3,66 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { IoMdQuote } from "react-icons/io";
 
 const testimonials = [
   {
     photo: "/images/testimonials/testimonial-1.jpg",
-    name: "Jean Dupont",
-    title: "Developpeur Web",
-    text: "Afrix Global m'a permis d'acquerir les competences necessaires pour lancer ma carriere dans le numerique. Le programme est complet et pratique.",
+    name: "Benjamin MUMPUYA",
+    title: "FullStack Developer",
+    text: "Issu d’un parcours en géologie, j’ai développé grâce à Talent 4 Startup des compétences en web, en automatisation et une vision entrepreneuriale, faisant de ce programme une véritable passerelle vers le digital.",
   },
   {
-    photo: "/images/testimonials/testimonial-2.jpg",
-    name: "Marie Kamau",
-    title: "Designer UI/UX",
-    text: "Grace aux formations, j'ai pu developper mes competences en design et trouver un emploi rapidement. Le suivi est excellent !",
+    photo: "/images/testimonials/testimonial-2.png",
+    name: "Amina ZABONA",
+    title: "Développeuse Web",
+    text: "Ma formation au programme Talent4Startup chez Afrix Global m’a permis d’acquérir de solides compétences en HTML, CSS, JavaScript et frameworks. Grâce à des formateurs engagés et des workshops enrichissants, j’ai également développé mon esprit d’équipe et ma capacité à travailler sur des projets concrets. Une expérience très formatrice pour ma carrière de développeuse web.",
   },
   {
-    photo: "/images/testimonials/testimonial-3.jpg",
-    name: "Aliou Diouf",
-    title: "Entrepreneur Digital",
-    text: "Les cours sont concrets et orientes projets reels. Afrix Global a transforme ma vision du numerique et booste ma confiance.",
+    photo: "/images/testimonials/testimonial-3.png",
+    name: "Robert KULE WA-KANGITSI",
+    title: "Développeur FullStack",
+    text: "Bénéficiaire du programme Talent4Startups d'Afrix Global financé par Digital Africa, j'ai traversé six mois d'une formation intensive qui n'est pas faite pour tout le monde — et j'en ressors avec une expérience concrète, une vision claire de l'IA appliquée et la capacité de concevoir des solutions web modernes de bout en bout.",
   },
   {
-    photo: "/images/testimonials/testimonial-4.jpg",
-    name: "Fatou Ndiaye",
-    title: "Frontend Developer",
-    text: "Une experience incroyable qui m'a permis de me lancer en freelance et obtenir mes premiers clients.",
+    photo: "/images/team/team-4.jpg",
+    name: "Laurence MASIKA",
+    title: "Développeur FullStack",
+    text: " Ravie d'avoir participé à la formation FullStack Web du programme Talent4Startups, financé par Digital Africa et dispensé chez Afrix-Global. Ce parcours m'a permis de renforcer mes compétences techniques, particulièrement en JavaScript. Au-delà des outils, j'ai surtout acquis une véritable capacité d'adaptation. Grâce aux notions de Problem Solving, je suis désormais capable d'appréhender rapidement de nouveaux langages et frameworks. Une étape clé dans mon parcours de développeur !",
   },
   {
-    photo: "/images/testimonials/testimonial-5.jpg",
-    name: "Omar Traore",
-    title: "Data Analyst",
-    text: "Le programme de formation est tres complet et m'a permis d'acquerir des competences en data science qui sont tres demandees sur le marche.",
+    photo: "/images/testimonials/testimonial-6.png",
+    name: "Alfred MUKOLOKA",
+    title: "Etudiant en Marketing Digital",
+    text: "Mon parcours chez Afrixglobal a transformé mon expérience professionnelle grâce à un cadre structuré, une équipe collaborative et une approche claire. Aujourd’hui, je communique mieux, je développe des stratégies et mes résultats en témoignent.",
+  },
+  {
+    photo: "/images/team/team-6.jpg",
+    name: "Grady MASIRIKA",
+    title: "Développeur Frontend",
+    text: "Afrix Global met véritablement l’accent sur le développement des talents en offrant un accompagnement structuré et des ressources adaptées. Grâce au programme Talent for Startup, organisé et financé par Digital Africa, j’ai pu apprendre de nouvelles compétences, approfondir mes connaissances et progresser rapidement dans mon parcours d’apprentissage, ce qui m’a ouvert de nouvelles perspectives dans le monde professionnel.",
+  },
+  {
+    photo: "/images/team/team-5.png",
+    name: "Alexs Kapene",
+    title: "Développeur Frontend/UI|UX Design",
+    text: "J’ai appris à renforcer mes bases en développement web, à mieux comprendre la logique des projets digitaux, à utiliser des outils de travail collaboratif, à développer mon autonomie et à transformer des connaissances en réalisations concrètes.",
+  },
+  {
+    photo: "/images/testimonials/testimonial-5.png",
+    name: "Reine MULEKYA",
+    title: "Etudiante en Marketing Degital",
+    text: "La formation en marketing digital chez Afrix a été une étape déterminante dans mon parcours. Elle m’a permis de développer des compétences concrètes en communication digitale, en création visuelle et en gestion de campagnes publicitaires. J’applique désormais ces acquis pour professionnaliser la communication de ma marque Crown Collection et renforcer sa présence en ligne. ",
   },
 ];
 
 export default function TestimonialsSection() {
   const [active, setActive] = useState(0);
 
-  // AUTOPLAY INFINI
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -52,19 +70,20 @@ export default function TestimonialsSection() {
   const next = () => setActive((active + 1) % testimonials.length);
   const prev = () =>
     setActive((active - 1 + testimonials.length) % testimonials.length);
+
   return (
     <section
-      className="w-full min-h-[80vh] bg-afrix-dark flex flex-col items-center justify-center"
+      className="w-full min-h-screen bg-afrix-dark flex flex-col items-center justify-center gap-10 lg:gap-[5vw] py-16"
       style={{
         backgroundImage:
           "radial-gradient(circle at 0% 100%, rgba(245, 180, 0, 0.302), transparent 35%), radial-gradient(circle at 100% 100%, rgba(15, 157, 88, 0.3), transparent 35%), radial-gradient(circle at 100% 0%, rgba(219, 68, 55, 0.3), transparent 25%)",
       }}
     >
-      <h2 className="text-3xl lg:text-4xl font-bold text-afrix-yellow mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-afrix-yellow text-center mb-10">
         TESTIMONIALES
       </h2>
 
-      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 max-w-6xl w-full px-6">
+      <div className="w-[90%] lg:w-[80%] flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
         {/* MOBILE AVATARS */}
         <div className="flex lg:hidden gap-3 overflow-x-auto pb-4 w-full justify-center">
           {testimonials.map((t, i) => (
@@ -88,24 +107,30 @@ export default function TestimonialsSection() {
         {/* AVATARS COLUMN */}
         <div className="relative h-105 w-55 items-center justify-center hidden lg:flex">
           {testimonials.map((t, i) => {
-            let offset = i - active;
+            // 1. Calcul de la distance circulaire la plus courte
+            let diff = i - active;
+            const len = testimonials.length;
 
-            // boucle infinie propre
-            if (offset > testimonials.length / 2) offset -= testimonials.length;
-            if (offset < -testimonials.length / 2)
-              offset += testimonials.length;
+            // Logique de bouclage (Shortest path sur le cercle)
+            if (diff > len / 2) diff -= len;
+            if (diff < -len / 2) diff += len;
 
-            const radius = 140;
+            // 2. Seuil de visibilité (on n'affiche que les 3 avant et 3 après)
+            const isVisible = Math.abs(diff) <= 3;
+            if (!isVisible) return null;
 
-            // espace vertical entre avatars (plus petit = plus serré)
-            const angle = offset * 0.65;
+            const radius = 160;
+            const spacingAngle = 0.5;
+            const angle = diff * spacingAngle;
 
-            // inversion horizontale + décalage pour entourer la grande image
-            const x = -Math.cos(angle) * radius + 40;
+            const x = -Math.cos(angle) * radius + 50;
             const y = Math.sin(angle) * radius;
 
-            const scale = offset === 0 ? 0 : 0.75;
-            const opacity = Math.abs(offset) > 2 ? 0 : 1;
+            // 4. Styles dynamiques
+            // L'élément actif disparaît de la colonne car il est dans "BIG IMAGE"
+            const isCenter = diff === 0;
+            const scale = isCenter ? 0 : 0.8 - Math.abs(diff) * 0.1;
+            const opacity = isCenter ? 0 : 1 - Math.abs(diff) * 0.2;
 
             return (
               <div
@@ -113,11 +138,14 @@ export default function TestimonialsSection() {
                 className="absolute transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]"
                 style={{
                   transform: `translate(${x}px, ${y}px) scale(${scale})`,
-                  opacity,
-                  zIndex: 10 - Math.abs(offset),
+                  opacity: opacity,
+                  zIndex: 10 - Math.abs(diff),
                 }}
               >
-                <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
+                <button
+                  onClick={() => setActive(i)}
+                  className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 shadow-lg hover:border-afrix-yellow transition-colors"
+                >
                   <Image
                     src={t.photo}
                     alt={t.name}
@@ -125,7 +153,7 @@ export default function TestimonialsSection() {
                     sizes="64px"
                     className="object-cover"
                   />
-                </div>
+                </button>
               </div>
             );
           })}
@@ -145,10 +173,9 @@ export default function TestimonialsSection() {
             />
           </div>
         </div>
-
         {/* TEXT */}
         <div className="max-w-xl space-y-6 text-center lg:text-left">
-          <Quote className="text-afrix-red w-10 h-10" />
+          <IoMdQuote className="text-afrix-red w-10 h-10" />
 
           <p className="text-white/80 leading-relaxed text-lg transition-all duration-500">
             {testimonials[active].text}

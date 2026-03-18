@@ -2,14 +2,10 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-
-const events = [
-  { image: "/images/event1.jpg", title: "Tech Summit 2026" },
-  { image: "/images/event2.jpg", title: "Workshop Digital" },
-  { image: "/images/event3.jpg", title: "Hackathon Afrix" },
-];
+import { events } from "@/lib/events-data"
 
 const AUTO_SCROLL_INTERVAL = 4000 // 4 seconds
 
@@ -73,8 +69,11 @@ export default function EventsSection() {
               <Button
                 variant="outline"
                 className="rounded-full border-white/40 bg-white/20 text-white backdrop-blur-md hover:bg-white/35 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 font-semibold px-7 py-3"
+                asChild
               >
-                Voir plus
+                <Link href={`/events/${events[currentIndex].id}`}>
+                  Voir plus
+                </Link>
               </Button>
             </div>
           </div>
@@ -108,3 +107,4 @@ export default function EventsSection() {
     </section>
   )
 }
+

@@ -26,7 +26,7 @@ export default function HeroSection() {
 
           {/* buttons hero section  */}
           <div className="flex justify-center md:justify-start gap-x-8 mt-8">
-            <Link href="#">
+            <Link href="/apropos">
               {" "}
               <Button
                 variant={"default"}
