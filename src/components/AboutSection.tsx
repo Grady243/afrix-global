@@ -59,7 +59,7 @@ export default function AboutSection() {
               efficacement la transformation digitale des entreprises.
             </p>
           </div>
-          <Link href="#">
+          <Link href="/apropos">
             <Button
               variant={"default"}
               size={"lg"}

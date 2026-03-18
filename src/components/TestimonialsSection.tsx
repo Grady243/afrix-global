@@ -59,7 +59,6 @@ const testimonials = [
 export default function TestimonialsSection() {
   const [active, setActive] = useState(0);
 
-  // AUTOPLAY INFINI
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
@@ -71,19 +70,20 @@ export default function TestimonialsSection() {
   const next = () => setActive((active + 1) % testimonials.length);
   const prev = () =>
     setActive((active - 1 + testimonials.length) % testimonials.length);
+
   return (
     <section
-      className="w-full min-h-[80vh] bg-afrix-dark flex flex-col items-center justify-center"
+      className="w-full min-h-screen bg-afrix-dark flex flex-col items-center justify-center gap-10 lg:gap-[5vw] py-16"
       style={{
         backgroundImage:
           "radial-gradient(circle at 0% 100%, rgba(245, 180, 0, 0.302), transparent 35%), radial-gradient(circle at 100% 100%, rgba(15, 157, 88, 0.3), transparent 35%), radial-gradient(circle at 100% 0%, rgba(219, 68, 55, 0.3), transparent 25%)",
       }}
     >
-      <h2 className="text-3xl lg:text-4xl font-bold text-afrix-yellow mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-afrix-yellow text-center mb-10">
         TESTIMONIALES
       </h2>
 
-      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 max-w-6xl w-full px-6">
+      <div className="w-[90%] lg:w-[80%] flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
         {/* MOBILE AVATARS */}
         <div className="flex lg:hidden gap-3 overflow-x-auto pb-4 w-full justify-center">
           {testimonials.map((t, i) => (
