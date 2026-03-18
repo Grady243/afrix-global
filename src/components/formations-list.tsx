@@ -3,12 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Users, BookOpen, Star } from "lucide-react";
-import Link from "next/link"
+import Link from "next/link";
 
 const formations = [
   {
     title: "Developpement Web Full-Stack",
-    image: "/images/pub2.jpg",
+    image: "/images/formations/fullstack.jpg",
     duration: "6 mois",
     level: "Debutant",
     students: 120,
@@ -16,11 +16,18 @@ const formations = [
     color: "bg-afrix-blue",
     description:
       "Maitrisez HTML, CSS, JavaScript, React, Node.js et les bases de donnees pour devenir un developpeur web complet.",
-    modules: ["HTML/CSS", "JavaScript", "React", "Node.js", "MongoDB", "Projet final"],
+    modules: [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Projet final",
+    ],
   },
   {
     title: "Developpement Mobile",
-    image: "/images/about-2.jpg",
+    image: "/images/formations/developpemement_mobile.png",
     duration: "4 mois",
     level: "Intermediaire",
     students: 85,
@@ -28,11 +35,18 @@ const formations = [
     color: "bg-afrix-green",
     description:
       "Apprenez a creer des applications mobiles performantes avec React Native et Flutter pour Android et iOS.",
-    modules: ["React Native", "Flutter", "APIs REST", "Firebase", "Publication", "Projet final"],
+    modules: [
+      "React Native",
+      "Flutter",
+      "APIs REST",
+      "Firebase",
+      "Publication",
+      "Projet final",
+    ],
   },
   {
     title: "Marketing Digital",
-    image: "/images/pub1.jpg",
+    image: "/images/formations/marqueting_digital.jpg",
     duration: "3 mois",
     level: "Debutant",
     students: 200,
@@ -40,11 +54,18 @@ const formations = [
     color: "bg-afrix-yellow",
     description:
       "Devenez un expert en marketing digital : SEO, publicite en ligne, reseaux sociaux et strategie de contenu.",
-    modules: ["SEO", "Google Ads", "Social Media", "Email Marketing", "Analytics", "Projet final"],
+    modules: [
+      "SEO",
+      "Google Ads",
+      "Social Media",
+      "Email Marketing",
+      "Analytics",
+      "Projet final",
+    ],
   },
   {
     title: "Communication Visuelle",
-    image: "/images/pub3.jpg",
+    image: "/images/formations/communication-visuelle.jpg",
     duration: "3 mois",
     level: "Debutant",
     students: 95,
@@ -63,7 +84,7 @@ const formations = [
   },
   {
     title: "Consultation Informatique",
-    image: "/images/event.jpg",
+    image: "/images/formations/consultation_informatique.jpg",
     duration: "4 mois",
     level: "Avance",
     students: 45,
@@ -71,11 +92,18 @@ const formations = [
     color: "bg-afrix-green",
     description:
       "Apprenez a diagnostiquer, conseiller et optimiser les systemes informatiques des entreprises.",
-    modules: ["Audit IT", "Cloud", "Securite", "Architecture", "Gestion de projet", "Projet final"],
+    modules: [
+      "Audit IT",
+      "Cloud",
+      "Securite",
+      "Architecture",
+      "Gestion de projet",
+      "Projet final",
+    ],
   },
   {
     title: "Redaction de Contenus",
-    image: "/images/about-1.jpg",
+    image: "/images/formations/redaction_contenus.jpg",
     duration: "2 mois",
     level: "Debutant",
     students: 150,
@@ -92,7 +120,7 @@ const formations = [
       "Projet final",
     ],
   },
-]
+];
 
 export function FormationsList() {
   return (
@@ -118,15 +146,21 @@ export function FormationsList() {
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute top-3 left-3">
-                <Badge className={`${formation.color} text-white border-0 text-xs font-medium`}>
+                <Badge
+                  className={`${formation.color} text-white border-0 text-xs font-medium`}
+                >
                   {formation.level}
                 </Badge>
               </div>
             </div>
 
             <CardContent className="p-6 flex flex-col gap-4">
-              <h3 className="text-lg font-bold text-white leading-tight">{formation.title}</h3>
-              <p className="text-white/70 text-sm leading-relaxed">{formation.description}</p>
+              <h3 className="text-lg font-bold text-white leading-tight">
+                {formation.title}
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                {formation.description}
+              </p>
 
               {/* Stats */}
               <div className="flex flex-wrap items-center gap-4 text-white/60 text-xs">
@@ -164,17 +198,14 @@ export function FormationsList() {
               <Button
                 asChild
                 variant="outline"
-                className="mt-2 rounded-full border-white/30 bg-transparent text-white hover:bg-white/10 text-sm"
+                className="mt-2 rounded-lg border-afrix-blue bg-transparent text-white hover:text-white hover:bg-afrix-blue text-sm"
               >
-                <Link href="/contact">
-                  <BookOpen className="w-4 h-4 mr-2" />
-                  {"S'inscrire"}
-                </Link>
+                <Link href="/contact">{"S'inscrire"}</Link>
               </Button>
             </CardContent>
           </Card>
         ))}
       </div>
     </section>
-  )
+  );
 }

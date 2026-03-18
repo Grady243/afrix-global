@@ -1,23 +1,30 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 const publications = [
   {
-    image: "/images/pub1.jpeg",
-    date: "03 Janvier 2026",
+    image: "/images/publications/pub-2.png",
+    date: "16 Mars 2026",
     description:
-      "Une courte description de la publication pour donner envie de lire.",
+      "Dans le cadre du programme Talent 4 Startups, nos étudiants en Marketing Digital Junior partagent leur expérience et les compétences acquises tout au long de la formation.",
+    link: "https://www.linkedin.com/posts/afrix-global_talent4startups-marketingdigital-formation-activity-7439242595786088448-nhYn?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEctRdkBYpYsxcmmUb6I5PI8kudJhWhu-HU",
   },
   {
-    image: "/images/pub2.jpeg",
-    date: "27 Decembre 2025",
-    description: "Resume succinct de la publication et details importants.",
+    image: "/images/publications/pub-1.png",
+    date: "14 Mars 2026",
+    description:
+      "Nous vous proposons 5 formations pratiques, en présentiel et en ligne, pour renforcer vos compétences en numérique et analyse de données, des atouts essentiels et recherchés sur le marché.",
+    link: "https://www.linkedin.com/posts/afrix-global_saisissez-cette-opportunit%C3%A9-de-formation-activity-7438079660426567680-MYUm?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEctRdkBYpYsxcmmUb6I5PI8kudJhWhu-HU",
   },
+
   {
-    image: "/images/hero3.jpg",
-    date: "15 Decembre 2025",
-    description: "Petit resume de la publication avec un texte accrocheur.",
+    image: "/images/publications/pub-3.png",
+    date: "24 Février 2026",
+    description:
+      "Nous lançons une série de sessions sur les grands enjeux du numérique, de l’IA au DevOps, pour inspirer, former et renforcer les compétences de la nouvelle génération du digital.",
+    link: "https://x.com/Afrix_Global/status/2026188762280054828?s=20",
   },
 ];
 export default function PublicationSection() {
@@ -45,7 +52,7 @@ export default function PublicationSection() {
                 src={pub.image || "/placeholder.svg"}
                 alt={pub.description}
                 fill
-                className="object-cover"
+                className="absolute  inset-0 w-full h-full z-20 object-cover"
               />
             </div>
             <CardContent className="p-5 flex flex-col gap-3">
@@ -53,12 +60,14 @@ export default function PublicationSection() {
               <p className="text-white text-base leading-relaxed">
                 {pub.description}
               </p>
-              <Button
-                variant="outline"
-                className="self-start rounded-full border-white/40 bg-white/10 text-white hover:bg-white/25 transition-all text-sm px-5"
-              >
-                Lire plus
-              </Button>
+              <Link href={pub.link}>
+                <Button
+                  variant="default"
+                  className="self-start  bg-afrix-blue text-white hover:bg-afrix-blue/70 transition-all text-sm px-5"
+                >
+                  Lire plus
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         ))}
