@@ -4,88 +4,99 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Ajout de useEffect
+import { usePathname } from "next/navigation";
 import FormInscription from "./FormInscription";
 import Modal from "./Modal";
 
 const navLinks = [
-	{ label: "Accueil", href: "/" },
-	{ label: "A propos", href: "/apropos" },
-	{ label: "Equipe", href: "/equipe" },
-	{ label: "Services", href: "/services" },
-	{ label: "Formations", href: "/formations" },
-	{ label: "Blog", href: "/blogs" },
-	{ label: "Contact", href: "/contact" },
+    { label: "Accueil", href: "/" },
+    { label: "A propos", href: "/apropos" },
+    { label: "Equipe", href: "/equipe" },
+    { label: "Services", href: "/services" },
+    { label: "Formations", href: "/formations" },
+    { label: "Blog", href: "/blogs" },
+    { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
-	const [mobileOpen, setMobileOpen] = useState(false);
-	const [isModalOpen, setIsModalOpen] = useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [mounted, setMounted] = useState(false); // État pour vérifier si le composant est monté
+    const pathname = usePathname();
 
-	return (
-		<>
-			<nav className="fixed top-0 left-0 w-full h-20 bg-afrix-dark/90 backdrop-blur-md border-b border-white/10 z-50">
-				<div className="container mx-auto h-full px-4 flex items-center justify-between">
-					{/* Logo */}
-					<div className="shrink-0">
-						<Image src="/afrix.png" alt="Afrix Global Logo" width={140} height={16} className="object-contain" />
-					</div>
+    useEffect(() => {
+        setMounted(true); // Définit mounted à true après le montage côté client
+    }, []);
 
-					{/* Desktop Menu */}
-					<ul className="hidden lg:flex items-center gap-8">
-						{navLinks.map((link) => (
-							<li key={link.label}>
-								<Link
-									href={link.href}
-									className="text-white/90 hover:text-afrix-blue transition-colors text-sm font-normal"
-								>
-									{link.label}
-								</Link>
-							</li>
-						))}
-					</ul>
+    return (
+        <>
+            <nav className="fixed top-0 left-0 w-full h-20 bg-afrix-dark/90 backdrop-blur-md border-b border-white/10 z-50">
+                <div className="container mx-auto h-full px-4 flex items-center justify-between">
+                    {/* Logo */}
+                    <div className="shrink-0">
+                        <Image src="/afrix.png" alt="Afrix Global Logo" width={140} height={16} className="object-contain" />
+                    </div>
 
-					{/* Desktop Button */}
-					<Button
-						onClick={() => setIsModalOpen(true)}
-						className="hidden lg:inline-flex w-36 md:w-45 p-6  bg-afrix-blue  hover:bg-afrix-blue/80 cursor-pointer"
-					>
-						Inscrivez-vous
-					</Button>
+                    {/* Desktop Menu */}
+                    <ul className="hidden lg:flex items-center gap-8">
+                        {navLinks.map((link) => (
+                            <li key={link.label}>
+                                <Link
+                                    href={link.href}
+                                    className={`text-white/90 hover:text-afrix-blue transition-colors text-sm font-normal ${
+                                        mounted && pathname === link.href ? "border-b-2 border-afrix-blue pb-7" : ""
+                                    }`} // Applique la classe active seulement après montage
+                                >
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
 
-					{/* Mobile toggle */}
-					<button className="lg:hidden text-white " onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
-						{mobileOpen ? <X size={28} /> : <Menu size={28} />}
-					</button>
+                    {/* Desktop Button */}
+                    <Button
+                        onClick={() => setIsModalOpen(true)}
+                        className="hidden lg:inline-flex w-36 md:w-45 p-6 bg-afrix-blue hover:bg-afrix-blue/80 cursor-pointer"
+                    >
+                        Inscrivez-vous
+                    </Button>
 
-					{/* Mobile Menu */}
-					{mobileOpen && (
-						<div className="absolute top-full left-0 right-0 bg-afrix-dark/95 backdrop-blur-md border-t border-white/10 p-6 flex flex-col gap-4 lg:hidden">
-							{navLinks.map((link) => (
-								<Link
-									key={link.label}
-									href={link.href}
-									className="text-white/90 hover:text-afrix-blue transition-colors text-base py-2"
-									onClick={() => setMobileOpen(false)}
-								>
-									{link.label}
-								</Link>
-							))}
-							<Button
-								onClick={() => setIsModalOpen(true)}
-								className=" w-36 md:w-45 p-6  bg-afrix-blue  hover:bg-afrix-blue/80 cursor-pointer"
-							>
-								Inscrivez-vous
-							</Button>
-						</div>
-					)}
-				</div>
-			</nav>
+                    {/* Mobile toggle */}
+                    <button className="lg:hidden text-white" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
+                        {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
 
-			{/* Modal */}
-			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-				<FormInscription />
-			</Modal>
-		</>
-	);
+                    {/* Mobile Menu */}
+                    {mobileOpen && (
+                        <div className="absolute top-full left-0 right-0 bg-afrix-dark/95 backdrop-blur-md border-t border-white/10 p-6 flex flex-col gap-4 lg:hidden">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className={`text-white/90 hover:text-afrix-blue transition-colors text-base py-2 ${
+                                        mounted && pathname === link.href ? "border-b-2 border-afrix-blue" : ""
+                                    }`} // Applique la classe active seulement après montage
+                                    onClick={() => setMobileOpen(false)}
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                            <Button
+                                onClick={() => setIsModalOpen(true)}
+                                className="w-36 md:w-45 p-6 bg-afrix-blue hover:bg-afrix-blue/80 cursor-pointer"
+                            >
+                                Inscrivez-vous
+                            </Button>
+                        </div>
+                    )}
+                </div>
+            </nav>
+
+            {/* Modal */}
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <FormInscription />
+            </Modal>
+        </>
+    );
 }
