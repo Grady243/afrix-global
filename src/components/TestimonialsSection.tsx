@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
 
   return (
     <section
-      className="w-full min-h-screen bg-afrix-dark flex flex-col items-center justify-center gap-10 lg:gap-[5vw] py-16"
+      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-16  bg-afrix-dark"
       style={{
         backgroundImage:
           "radial-gradient(circle at 0% 100%, rgba(245, 180, 0, 0.302), transparent 35%), radial-gradient(circle at 100% 100%, rgba(15, 157, 88, 0.3), transparent 35%), radial-gradient(circle at 100% 0%, rgba(219, 68, 55, 0.3), transparent 25%)",
@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
             const isVisible = Math.abs(diff) <= 3;
             if (!isVisible) return null;
 
-            const radius = 160;
+            const radius = 140;
             const spacingAngle = 0.5;
             const angle = diff * spacingAngle;
 

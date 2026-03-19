@@ -30,7 +30,7 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="w-full min-h-[80vh] py-16 bg-afrix-dark flex flex-col items-center gap-8"
+      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-16  bg-afrix-dark"
       style={{
         backgroundImage:
           "radial-gradient(circle at 0% 100%, rgba(66, 133, 244, 0.3), transparent 25%), radial-gradient(circle at 100% 0%, rgba(15, 157, 88, 0.3), transparent 35%)",
@@ -48,7 +48,7 @@ export default function EventsSection() {
         {/* Left arrow */}
         <button
           onClick={prev}
-          className="absolute left-2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all"
+          className="absolute left-2 z-10 w-12 h-12 rounded-full bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white transition-all"
           aria-label="Previous event"
         >
           <ChevronLeft size={24} />
@@ -68,7 +68,7 @@ export default function EventsSection() {
             <div className="absolute inset-0 flex items-end justify-center pb-8">
               <Button
                 variant="outline"
-                className="rounded-full border-white/40 bg-white/20 text-white backdrop-blur-md hover:bg-white/35 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 font-semibold px-7 py-3"
+                className="rounded-full text-afrix-blue bg-transparent border border-afrix-blue hover:bg-afrix-blue hover:text-white cursor-pointer opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 font-semibold px-7 py-3"
                 asChild
               >
                 <Link href={`/events/${events[currentIndex].id}`}>
@@ -82,7 +82,7 @@ export default function EventsSection() {
         {/* Right arrow */}
         <button
           onClick={next}
-          className="absolute right-2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all"
+          className="absolute right-2 z-10 w-12 h-12 rounded-full bg-gray-400 hover:bg-gray-500 flex items-center justify-center text-white transition-all"
           aria-label="Next event"
         >
           <ChevronRight size={24} />
@@ -105,6 +105,6 @@ export default function EventsSection() {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
