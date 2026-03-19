@@ -11,7 +11,7 @@ interface EventDetailProps {
 
 export function EventDetail({ event }: EventDetailProps) {
   return (
-    <section className="w-full bg-afrix-dark py-16">
+    <section className="w-full min-h-screen gap-10 lg:gap-[5vw] bg-afrix-dark py-16">
       <div className="w-[90%] max-w-[1200px] mx-auto">
         {/* Back button */}
         <Link href="/#events" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors">

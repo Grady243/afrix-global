@@ -11,17 +11,17 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-16  bg-afrix-dark"
+      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-20 bg-afrix-dark"
       style={{
         backgroundImage:
           "radial-gradient(circle at 10% 100%, rgba(244, 180, 0, 0.3), transparent 25%), radial-gradient(circle at 100% 0%, rgba(219, 68, 55, 0.3), transparent 35%)",
       }}
     >
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mt-16">
         <span className="text-afrix-green">A PROPOS DE </span> NOUS
       </h2>
 
-      <div className="w-[90%] lg:w-[80%] flex flex-col items-start md:flex-row gap-6">
+      <div className="w-[90%] lg:w-[80%] flex flex-col items-start md:flex-row gap-6 mt-10 mx-auto">
         <div className=" w-full lg:w-1/2  relative">
           <div className="w-full h-full rounded md:rounded-bl-[5rem] overflow-hidden ">
             {" "}

@@ -193,13 +193,13 @@ export function AboutContent() {
             "radial-gradient(circle at 100% 0%, rgba(66, 133, 244, 0.2), transparent 30%), radial-gradient(circle at 0% 100%, rgba(219, 68, 55, 0.15), transparent 30%)",
         }}
       >
-        <div className="w-[90%] lg:w-[80%] mx-auto">
+        <div className="w-[90%] lg:w-[80%] mx-auto mt-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mb-12">
             Notre <span className="text-afrix-yellow">Mission</span> &{" "}
             <span className="text-afrix-red">Vision</span>
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 mx-auto mt-16">
             {/* Mission */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 flex flex-col gap-4">
               <div className="w-16 h-16 rounded-full bg-afrix-yellow/20 flex items-center justify-center">
@@ -246,7 +246,7 @@ export function AboutContent() {
             notre culture d'entreprise.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto mt-16">
             {values.map((value) => (
               <div
                 key={value.title}
@@ -276,7 +276,7 @@ export function AboutContent() {
         }}
       >
         <div className="w-[90%] lg:w-[80%] mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mx-auto mt-16">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
@@ -304,7 +304,7 @@ export function AboutContent() {
       </section>
 
       <section
-        className="w-full py-16 bg-afrix-dark flex flex-col items-center"
+        className="w-full py-20 bg-afrix-dark flex flex-col items-center"
         style={{
           backgroundImage:
             "radial-gradient(circle at 0% 100%, rgba(15, 157, 88, 0.3), transparent 35%), radial-gradient(circle at 100% 0%, rgba(244, 180, 0, 0.3), transparent 35%)",
@@ -316,7 +316,7 @@ export function AboutContent() {
           <p className="text-white/70 text-center max-w-[600px] mx-auto mb-12">
             Decouvrez l'equipe passionnee d'Afrix Global qui forme et accompagne les talents africains dans le numerique.
           </p>
-        <div className="w-[90%] max-w-[1200px] flex flex-wrap justify-center gap-8">
+        <div className="w-[90%] max-w-[1200px] mx-auto mt-16 flex flex-wrap justify-center gap-8">
           {teamMembers.map((member) => (
             <Card
               key={member.name}

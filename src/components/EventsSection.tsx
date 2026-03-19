@@ -30,7 +30,7 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-16  bg-afrix-dark"
+      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-20 bg-afrix-dark"
       style={{
         backgroundImage:
           "radial-gradient(circle at 0% 100%, rgba(66, 133, 244, 0.3), transparent 25%), radial-gradient(circle at 100% 0%, rgba(15, 157, 88, 0.3), transparent 35%)",
@@ -41,7 +41,7 @@ export default function EventsSection() {
       </h2>
 
       <div 
-        className="relative w-[90%] max-w-[1000px] flex items-center justify-center"
+        className="relative w-[90%] max-w-[1000px] flex items-center justify-center mt-16 mx-auto"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >

@@ -58,7 +58,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-16  bg-afrix-dark"
+      className="w-full min-h-screen flex flex-col justify-center gap-10 lg:gap-[5vw] items-center py-20  bg-afrix-dark"
       style={{
         backgroundImage:
           "radial-gradient(circle at 10% 0%, rgba(244, 180, 0, 0.3), transparent 25%), radial-gradient(circle at 100% 100%, rgba(15, 157, 88, 0.3), transparent 35%)",
@@ -68,7 +68,7 @@ export default function ServicesSection() {
         NOS <span className="text-afrix-red">SERVICES</span>
       </h2>
 
-      <div className="w-[90%] lg:w-[80%] flex flex-wrap justify-center gap-6">
+      <div className="w-[90%] lg:w-[80%] flex flex-wrap justify-center gap-6 mx-auto mt-16">
         {services.map((service) => (
           <Card
             key={service.title}

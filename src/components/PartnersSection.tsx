@@ -14,7 +14,7 @@ const partners = [
 export default function PartnersSection() {
   return (
     <section
-      className="w-full min-h-[50vh] py-16 bg-afrix-dark flex flex-col items-center gap-10 overflow-hidden"
+      className="w-full min-h-[50vh] py-20 bg-afrix-dark flex flex-col items-center gap-10 overflow-hidden"
       style={{
         backgroundImage:
           "radial-gradient(circle at 100% 0%, rgba(15, 157, 88, 0.3), transparent 35%), radial-gradient(circle at 0% 0%, rgba(245, 180, 0, 0.302), transparent 35%)",
@@ -24,7 +24,7 @@ export default function PartnersSection() {
         NOS <span className="text-[#4285f4]">PARTENAIRES</span>
       </h2>
 
-      <div className="relative w-full overflow-hidden">
+      <div className="relative mx-auto mt-16 mb-16 w-full overflow-hidden">
         {/* Fade gauche */}
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-24 bg-linear-to-r from-afrix-dark/50 to-transparent" />
 
