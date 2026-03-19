@@ -1,7 +1,8 @@
-import Image from "next/image"
-import { Rocket, Globe, Target, Users, Award, Heart } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import Image from "next/image";
+import { Rocket, Globe, Target, Users, Award, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const values = [
   {
@@ -36,14 +37,14 @@ const values = [
     color: "text-afrix-red",
     bgColor: "bg-afrix-red/10",
   },
-]
+];
 
 const stats = [
-  { value: "+1000", label: "Membres actifs" },
-  { value: "+50", label: "Formations" },
-  { value: "+200", label: "Diplomes" },
-  { value: "+10", label: "Partenaires" },
-]
+  { value: 1000, label: "Membres actifs" },
+  { value: 50, label: "Formations" },
+  { value: 200, label: "Diplomes" },
+  { value: 10, label: "Partenaires" },
+];
 
 export function AboutContent() {
   return (
@@ -58,7 +59,7 @@ export function AboutContent() {
       >
         <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           {/* Images */}
-          <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[500px]">
+          <div className="w-full lg:w-1/2 relative min-h-100 lg:min-h-125">
             <div className="absolute left-0 top-0 w-[70%] h-[80%] rounded-2xl overflow-hidden">
               <Image
                 src="/images/about-1.jpg"
@@ -75,8 +76,10 @@ export function AboutContent() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute right-[5%] top-[30%] w-[130px] h-[100px] bg-afrix-green rounded-2xl flex flex-col justify-center items-center z-10">
-              <h3 className="text-3xl font-bold text-white">+5</h3>
+            <div className="absolute right-[5%] top-[30%] w-32.5 h-25 bg-afrix-green rounded-2xl flex flex-col justify-center items-center z-10">
+              <h3 className="text-3xl font-bold text-white">
+                <AnimatedCounter prefix="+" target={5} />
+              </h3>
               <p className="text-white text-sm">Annees</p>
             </div>
           </div>
@@ -212,7 +215,7 @@ export function AboutContent() {
                           : "text-afrix-red"
                   }`}
                 >
-                  {stat.value}
+                  <AnimatedCounter prefix="+" target={stat.value} />
                 </h3>
                 <p className="text-white/70 text-sm sm:text-base">
                   {stat.label}
@@ -236,14 +239,14 @@ export function AboutContent() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               asChild
-              className="rounded-full bg-afrix-blue text-white hover:bg-[#3367d6] px-8 py-6"
+              className="w-36 md:w-45 p-6  bg-afrix-blue  hover:bg-afrix-blue/80 cursor-pointer"
             >
               <Link href="/formations">Voir nos formations</Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="rounded-full border-white/30 text-white hover:bg-white/10 px-8 py-6"
+              className="w-36 md:w-45 p-6 bg-transparent border border-afrix-blue text-white hover:text-white hover:bg-afrix-blue cursor-pointer"
             >
               <Link href="/contact">Nous contacter</Link>
             </Button>
@@ -251,5 +254,5 @@ export function AboutContent() {
         </div>
       </section>
     </div>
-  )
+  );
 }
