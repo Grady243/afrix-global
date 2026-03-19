@@ -12,7 +12,6 @@ import Modal from "./Modal";
 const navLinks = [
     { label: "Accueil", href: "/" },
     { label: "A propos", href: "/apropos" },
-    { label: "Equipe", href: "/equipe" },
     { label: "Services", href: "/services" },
     { label: "Formations", href: "/formations" },
     { label: "Blog", href: "/blogs" },

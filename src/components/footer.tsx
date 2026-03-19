@@ -4,7 +4,6 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 const menuLinks = [
   { label: "Accueil", href: "/" },
-  { label: "Equipe", href: "/equipe" },
   { label: "Services", href: "/services" },
   { label: "Formations", href: "/formations" },
   { label: "Blog", href: "/blogs" },
